@@ -35,7 +35,7 @@ import Notifications from "vt-notifications";
 Vue.use(Notifications);
 ```
 
-## Basic usage
+## 🍞Basic usage
 
 For example in your App.vue
 
