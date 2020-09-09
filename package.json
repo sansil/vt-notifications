@@ -1,5 +1,6 @@
 {
-  "name": "vnotifications",
+  "name": "vt-notifications",
+  "description": "A headless vue notification library to use with tailwind",
   "version": "0.1.0",
   "author": "sansil",
   "main": "src/index.js",
