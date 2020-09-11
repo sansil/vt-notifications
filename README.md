@@ -14,6 +14,10 @@ A headless vue notification library to use with tailwind
 - Create different groups of notifications
 - Built in transitions
 
+## 🤖Demo
+
+[Live demo](https://codesandbox.io/s/vue-tailwind-notifications-i4tgd?file=/src/App.vue)
+
 ## ⚡️ Installation
 
 ```bash
@@ -184,9 +188,48 @@ this.$notify(
 
 ## Props
 
-Props por All props are optional.
+Props for notification component, all are opcional.
 
 | Name                   | Type   | Default                                                                                                                                                                                                                                                                                                                                                                                                                      | Description                                    |
 | ---------------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
 | maxNotifications       | Number | 10                                                                                                                                                                                                                                                                                                                                                                                                                           | Maximum notifications displayed simultaneously |
 | transitionGroupClasses | Object | {enterActiveClassDelayed:"transform ease-out duration-300 transition delay-300",enterActiveClass:"transform ease-out duration-300 transition",enterClass:"translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-4",enterToClass:"translate-y-0 opacity-100 sm:translate-x-0",leaveActiveClass:"transition ease-in duration-500",leaveClass:"opacity-100",leaveToClass: "opacity-0", moveClass: "transition duration-500 "} | Classes for the transition-group component     |
+
+## Defualt scoped slot
+
+Scope props:
+
+| Name          | Type     | Description                                                              |
+| ------------- | -------- | ------------------------------------------------------------------------ |
+| notifications | Array    | Arrya of notification object                                             |
+| close         | Function | when called closes the notification. Expect the notification id as input |
+
+### Example
+
+```vue
+<notification v-slot="{ notifications, close }">
+  <div
+    v-for="notification in notifications"
+    :key="notification.id"
+    class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-4"
+    role="alert"
+  >
+    <strong class="font-bold">Holy smokes!</strong>
+    <span class="block sm:inline">Something seriously bad happened.</span>
+
+    <button @click="close(notification.id)" class="absolute top-0 bottom-0 right-0 px-4 py-3">
+      <svg
+        class="fill-current h-6 w-6 text-red-500"
+        role="button"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 20 20"
+      >
+        <title>Close</title>
+        <path
+          d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"
+        />
+      </svg>
+    </button>
+  </div>
+</notification>
+```
