@@ -8,13 +8,13 @@
 
 A headless vue notification library to use with tailwind
 
-## 🌟Features
+## 🌟 Features
 
 - 100% customizable
 - Create different groups of notifications
 - Built in transitions
 
-## 🤖Demo
+## 🤖 Demo
 
 [Live demo](https://codesandbox.io/s/vue-tailwind-notifications-i4tgd?file=/src/App.vue)
 
@@ -39,7 +39,7 @@ import Notifications from "vt-notifications";
 Vue.use(Notifications);
 ```
 
-## 🍞How to use
+## 🍞 How to use
 
 ```vue
 <notificationGroup group="foo">
