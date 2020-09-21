@@ -3,7 +3,7 @@
 import { state, methods } from "./notifications.js";
 export default {
   inject: {
-    context: { default: { group: "" } },
+    context: { default: { group: "", position: "top" } },
   },
   props: {
     maxNotifications: {
@@ -22,7 +22,7 @@ export default {
           leaveActiveClass: "transition ease-in duration-500",
           leaveClass: "opacity-100",
           leaveToClass: "opacity-0",
-          moveClass: "transition duration-500 ",
+          moveClass: "transition duration-500",
         };
       },
     },
@@ -59,6 +59,9 @@ export default {
   },
   computed: {
     sortedNotifications() {
+      if (this.context.position === "bottom")
+        return [...this.notificationsByGroup].slice(0, this.maxNotifications);
+      // if not bottom reverse the array
       return [...this.notificationsByGroup]
         .reverse()
         .slice(0, this.maxNotifications);

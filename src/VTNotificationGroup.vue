@@ -7,10 +7,18 @@ export default {
       type: String,
       default: "",
     },
+    position: {
+      type: String,
+      default: "top",
+      validator(value) {
+        return ["top", "bottom"].includes(value);
+      },
+    },
   },
+
   provide() {
     return {
-      ["context"]: { group: this.group },
+      ["context"]: { group: this.group, position: this.position },
     };
   },
   render() {
