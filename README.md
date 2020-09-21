@@ -276,12 +276,19 @@ this.$notify(
 
 ## Props
 
-Props for notification component, all are opcional.
+Props for **notification component**, all are opcional.
 
 | Name                   | Type   | Default                                                                                                                                                                                                                                                                                                                                                                                                                      | Description                                    |
 | ---------------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
 | maxNotifications       | Number | 10                                                                                                                                                                                                                                                                                                                                                                                                                           | Maximum notifications displayed simultaneously |
 | transitionGroupClasses | Object | {enterActiveClassDelayed:"transform ease-out duration-300 transition delay-300",enterActiveClass:"transform ease-out duration-300 transition",enterClass:"translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-4",enterToClass:"translate-y-0 opacity-100 sm:translate-x-0",leaveActiveClass:"transition ease-in duration-500",leaveClass:"opacity-100",leaveToClass: "opacity-0", moveClass: "transition duration-500 "} | Classes for the transition-group component     |
+
+Props for **notification group component**, all are opcional.
+
+| Name     | Type   | Description                             |
+| -------- | ------ | --------------------------------------- |
+| position | String | "bottom" or "top are the posible values |
+| group    | String | Name of the group of notifications      |
 
 ## Defualt scoped slot
 
