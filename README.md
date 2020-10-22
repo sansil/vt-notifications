@@ -328,3 +328,31 @@ Scope props:
   </div>
 </notification>
 ```
+
+## Using the library in Nuxt.js
+
+To get this library working in Nuxt.js you need to prepare a few things.
+
+Create a new plugin in your Nuxt.js project `plugin/vt-notifications.js` and add the following:
+
+```js
+import Vue from "vue";
+import Notifications from "vt-notifications";
+
+Vue.use(Notifications);
+```
+
+Now you need to add the plugin in your `nuxt.config.js` and add vt-notifications to the transpilation build step.
+
+Add the following lines in your `nuxt.config.js`:
+
+```js
+plugins: [
+  { src: "~/plugins/vt-notifications" },
+],
+build: {
+  transpile: [
+    "vt-notifications"
+  ],
+}
+```
