@@ -45,10 +45,7 @@ export default {
         },
       },
       [
-        this.$scopedSlots.default({
-          notifications: this.sortedNotifications,
-          close: this.close,
-        }),
+        Object.prototype.hasOwnProperty.call(this.$scopedSlots, 'default') ? this.$scopedSlots.default({ notifications: this.sortedNotifications, close: this.close }) : null,
       ]
     );
   },
