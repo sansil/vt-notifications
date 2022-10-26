@@ -18,6 +18,9 @@ export const methods = {
     }, timeout || 3000) // default time 3s
   },
   removeNotification(id) {
-    state.notifications.splice(state.notifications.findIndex(n => n.id === id), 1)
+    const found = state.notifications.findIndex((n) => n.id === id);
+    if (found >= 0) {
+      state.notifications.splice(found, 1);
+    }
   }
 };
